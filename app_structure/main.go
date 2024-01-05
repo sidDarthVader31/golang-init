@@ -1,6 +1,10 @@
 // a package clause starts every source file main is a special name declaring an executable rather than a library package package main
 package main
-import "fmt"
+
+import (
+	"fmt"
+	"math"
+)
 
 const secondsInhour = 3600
 
@@ -52,14 +56,19 @@ func main() {
   //pointers
   var x int = 2
   var xAddress *int = &x
-  fmt.Printf("type of xAddress: %T , and value is %v", xAddress, xAddress);
+  fmt.Printf("type of xAddress: %T , and value is %v \n", xAddress, xAddress);
 
+  var f float32 = math.MaxFloat32
+    fmt.Println(f)
+  f = f * 1.5
+  fmt.Println("new f:", f)
 
+  //type conversions
 
-
-
-
-
+  var x1 = 3
+  var x2 = 5.2
+    fmt.Println(float64(x1) * x2)
+fmt.Println(int(x2) * x1)
 
 
 
