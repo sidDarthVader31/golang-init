@@ -7,7 +7,8 @@ import (
 )
 
 const secondsInhour = 3600
-
+type km float64
+type miles float64
 // main is the special function name ans is used as the main entrypoint of the executable file.
 // main function is mandatory in an executable file
 func main() {
@@ -67,8 +68,15 @@ func main() {
 
   var x1 = 3
   var x2 = 5.2
-    fmt.Println(float64(x1) * x2)
-fmt.Println(int(x2) * x1)
+  fmt.Println(float64(x1) * x2)
+  fmt.Println(int(x2) * x1)
+
+  //defined types 
+
+  var distanceKm km = 475
+  var distanceInMiles miles 
+  distanceInMiles = miles(distanceKm)/ 1.6 // type conversion of defined types
+  fmt.Println("distance in miles:", distanceInMiles)
 
 
 
