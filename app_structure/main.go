@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"math"
 	"os"
+	"strconv"
 )
 
 const secondsInhour = 3600
@@ -71,6 +72,19 @@ func main() {
   var x2 = 5.2
   fmt.Println(float64(x1) * x2)
   fmt.Println(int(x2) * x1)
+
+
+  //CONVERt string to int 
+
+  iString, err := strconv.Atoi("45");
+  s := strconv.Itoa(-42)
+  b, errb := strconv.ParseBool("true")
+  f1, err := strconv.ParseFloat("3.1415", 64)
+  i, err := strconv.ParseInt("-42", 10, 64)
+  u, err := strconv.ParseUint("42", 10, 64)
+  fmt.Printf("%T %T %T %T %T %T \n", iString, b, s, i, u, f1)
+  _ = err
+  _ = errb
 
   //defined types 
 
