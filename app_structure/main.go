@@ -4,6 +4,7 @@ package main
 import (
 	"fmt"
 	"math"
+	"os"
 )
 
 const secondsInhour = 3600
@@ -79,6 +80,6 @@ func main() {
   fmt.Println("distance in miles:", distanceInMiles)
 
 
-
+  fmt.Println("command line args:", os.Args)
 
 }
