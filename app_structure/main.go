@@ -127,4 +127,18 @@ func main() {
     fmt.Println(i)
   }
 
+  //for loop over an array 
+
+  people := [5] string {"Jude","Vini","Rodrgyo","Luca","Toni"};
+
+  for index, name := range people{
+    fmt.Printf("name at index: %d is %s\n", index, name) 
+  }
+
+
+
+
+
+
+
 }
