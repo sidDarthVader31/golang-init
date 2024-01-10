@@ -115,7 +115,11 @@ func main() {
   }
 
 
-
+  if num := 10; num > 5 {
+    fmt.Println("number greater than 5")
+  }else{
+    fmt.Println("number less than 5 ")
+  }
 
 
 
