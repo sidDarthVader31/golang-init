@@ -105,6 +105,14 @@ func main() {
     fmt.Println(i1)
   }
 
+  //simpleif
+
+
+  if i5,err5 := strconv.Atoi("45sd"); err5 == nil {
+    fmt.Println("no error, value is ", i5)
+  } else{
+    fmt.Println("error found:", err5)
+  }
 
 
 
