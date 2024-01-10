@@ -96,4 +96,19 @@ func main() {
 
   fmt.Println("command line args:", os.Args)
 
+  //if else 
+
+  i1, err1 := strconv.Atoi("45a");
+  if err1 != nil {
+    fmt.Println(err1)
+  } else {
+    fmt.Println(i1)
+  }
+
+
+
+
+
+
+
 }
