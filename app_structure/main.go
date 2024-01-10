@@ -121,6 +121,10 @@ func main() {
     fmt.Println("number less than 5 ")
   }
 
+//for loop
 
+  for i:=0;i<10;i++{
+    fmt.Println(i)
+  }
 
 }
