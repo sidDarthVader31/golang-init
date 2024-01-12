@@ -176,7 +176,24 @@ func main() {
     2: 20,
     0:5, // WHILE declaring multi line array , it is mandatory to add a , at the end of last line
   }
-
 fmt.Println(keyedArray)
+  keyedNames := [...]string{
+    4:"sid4",
+    3: "sid3",
+  }
+  fmt.Println(keyedNames)
+  fmt.Println("length of keyed names:", len(keyedNames))
+
+
+  //not specifiying the index of an element 
+
+  keyedCities := [...] string {
+    4: "London",
+    "New Delhi",
+    2: "Dehradun",
+  }
+  fmt.Printf("%#v\n", keyedCities)
+  //unindexed value will take the index after the index of the value above it, in this case london 
+  // if no value is specified before unindexed value, meaning the first value we add is of unindexed type then it will take the index 0
 
 }
