@@ -167,8 +167,16 @@ func main() {
 
   fmt.Printf("address of mArray: %p\n", &mArray)
   fmt.Printf("address of n Array:%p \n", &nArray);
-  //the above two addresses will be different 
+  //the above two addresses will be different
 
+  //keyed arrays 
 
+  keyedArray := [3]int {
+    1:10,
+    2: 20,
+    0:5, // WHILE declaring multi line array , it is mandatory to add a , at the end of last line
+  }
+
+fmt.Println(keyedArray)
 
 }
