@@ -1,4 +1,5 @@
 // a package clause starts every source file main is a special name declaring an executable rather than a library package package main
+
 package main
 
 import (
@@ -135,9 +136,38 @@ func main() {
     fmt.Printf("name at index: %d is %s\n", index, name) 
   }
 
+  nameArray := [4]string{"sid","sid2","sid3"}
+  fmt.Printf("%#v\n", nameArray)
 
 
+  //epplisis operator
+  numArray := [...]int {1,2,3,4,5}
+  fmt.Printf("%#v\n", numArray)
+  fmt.Printf("length of num array is : %d\n", len(numArray))
 
+  //iterate over an array 
+
+  for i,v := range(numArray){
+    fmt.Printf("index: %d, value: %d\n", i,v)
+  }
+
+  //2d arrays 
+
+  twoDArray := [2][3]int{
+    {5,6,7},
+    {8,9,10},
+  }
+  fmt.Println(twoDArray)
+
+  mArray := [3] int {1,2,3}
+  nArray :=mArray;
+
+  //above line will create a new copy of mArray , any modification to mArray will not reflect back on nArray
+  ///however in slices the two slices will be connected and same copy will be used 
+
+  fmt.Printf("address of mArray: %p\n", &mArray)
+  fmt.Printf("address of n Array:%p \n", &nArray);
+  //the above two addresses will be different 
 
 
 
