@@ -7,6 +7,7 @@ import (
 	"math"
 	"os"
 	"strconv"
+
 )
 
 const secondsInhour = 3600
@@ -136,6 +137,7 @@ func main() {
     fmt.Printf("name at index: %d is %s\n", index, name) 
   }
 
+  //arrays 
   nameArray := [4]string{"sid","sid2","sid3"}
   fmt.Printf("%#v\n", nameArray)
 
@@ -194,6 +196,57 @@ fmt.Println(keyedArray)
   }
   fmt.Printf("%#v\n", keyedCities)
   //unindexed value will take the index after the index of the value above it, in this case london 
-  // if no value is specified before unindexed value, meaning the first value we add is of unindexed type then it will take the index 0
+  // if no value is specified before unindexed value, meaning the first value we add is of unindexed
+  //type then it will take the index 0
+
+  //slices
+  var cities[] string
+  fmt.Println("slice:", cities== nil) // nil means the value exist but hasnt been initialized yet
+
+  fmt.Println("length of cities:", len(cities))
+
+  numbersSlice := []int {1,2,3,4}
+  fmt.Println("numbers::slice:", numbersSlice)
+
+  //creating a slice using make 
+
+  numsSliceMake := make([]int, 2)
+  
+  fmt.Printf("using make :%#v", numsSliceMake)
+
+  var slice1 []int; //equal to nil
+  slice2 := []int{};//not equal to nil
+
+  fmt.Println(slice1 == nil) //returns true
+  fmt.Println(slice2 ==  nil) //returns false 
+
+  //note : in go slices can only be compared with nil
+  //to compare two slices we will have to iterate over them and compare value at every index
+
+  //append to a slice 
+  fmt.Println(numbersSlice) //prints - 1,2,3 ,4 
+  numbersSlice = append(numbersSlice, 5)
+
+  fmt.Println("numbers slice after append:", numbersSlice) // prints 1,2,3,4,5
+  
+  //append can also be used to add a slice to another slice 
+  nSlice :=[]int {40,50,60}
+  numbersSlice = append(numbersSlice, nSlice...)
+  fmt.Println("numbers slice after adding another aslice:", numbersSlice)
+
+  s1 := [] int {10,20,30,40,50,60}
+  s3,s4 := s1[0:2], s1[1:3] // s1, s3 and s4 all contains same backing array 
+  fmt.Println(s3)
+  fmt.Println(s4)
+
+  s3[1]= 1000 // when we modify s3 the backing array is also modified which changes the value of s1 and s4 too 
+  fmt.Println(s4) // prints [1000,30]
+  fmt.Println(s1) // prints [10,1000,30,40,50,60]
+
+
+
+
+
+
 
 }
