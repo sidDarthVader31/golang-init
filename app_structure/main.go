@@ -350,8 +350,19 @@ fmt.Println(keyedArray)
 
   fmt.Printf("%d : %v\n", val3, ok)
 
+  //delete a key from map 
 
+  delete(peopleMap, "sid")
+  fmt.Println(peopleMap)
 
+  nameMap :=  map[string] string {
+    "sid":"sid",
+    "siddharth":"siddharth",
+  }
+  nameMap1 := nameMap //this creates a copy with same map header, any change to either one of the map
+  // will be reflected back in the other as well 
+  nameMap1["sid"] ="sid1"
+  fmt.Println(nameMap)
 
 
 
