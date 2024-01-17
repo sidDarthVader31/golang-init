@@ -7,7 +7,7 @@ import (
 	"math"
 	"os"
 	"strconv"
-
+	"unicode/utf8"
 )
 
 const secondsInhour = 3600
@@ -292,7 +292,7 @@ fmt.Println(keyedArray)
         fmt.Printf("%c", str[i]) // -> Å£arÄ
     }
  
-    fmt.Println("\n" + strings.Repeat("#", 10))
+    fmt.Println("\n ####")
  
     // decoding a string rune by rune manually:
     for i := 0; i < len(str); {
@@ -304,12 +304,57 @@ fmt.Println(keyedArray)
         i += size           // incrementing i by the size of the rune in bytes
     }
  
-    fmt.Println("\n" + strings.Repeat("#", 10))
+    fmt.Println("\n#####")
  
     // decoding a string rune by rune automatically:
     for i, r := range str { //the first value returned by range is the index of the byte in string where rune starts
-        fmt.Printf("%d -> %c", i, r) // => ţară
+        fmt.Printf("%d -> %c\n", i, r) // => ţară
     }
+
+  str1 := "I !love golang !"
+  str2 := "ðß©˳þ"
+  fmt.Println(str1[0:5]) // slicing string with ascii values work normally
+  fmt.Println(str2[0:3]) // slicing strings with non ascii values will return abrupt strings
+  //because slicing happens for bytes not runes 
+
+  //to properly slice the string (contatining non ascii values) we will have to convert it to rune
+
+  rune2 := []rune(str2)
+  fmt.Printf("%T\n", rune2)
+
+  fmt.Println(string(rune2[0:3]))
+
+  //maps
+
+  var checkMap map[string] int
+  fmt.Println("check map:", checkMap)
+
+  //checkMap["sid"] = 1; // this is an invalid line, we cannot assign a key value pair to a map if its not initialized 
+
+  peopleMap := map[string] int{}
+  peopleMap["sid"]=1
+  fmt.Println("check map :", peopleMap)
+  map1 := make(map[string]int)
+  map1["sid"] = 345
+  fmt.Println("map1:", map1)
+
+  //fetching a non existing key returns the zero value of the type of value for the map 
+
+  val1 := peopleMap["sid"]
+  fmt.Println(val1) //returns 1
+  val2 := peopleMap["siddharth"] //val2 is zero 
+  fmt.Println(val2)
+
+  val3, ok := peopleMap["sid"] // this returns two values, val3 = value at key and ok is boolean 
+  // which is true if key exists and false if key does not exist
+
+  fmt.Printf("%d : %v\n", val3, ok)
+
+
+
+
+
+
 
 
 }
