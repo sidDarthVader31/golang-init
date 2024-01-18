@@ -326,20 +326,20 @@ fmt.Println(keyedArray)
 
   //maps
 
-  var checkMap map[string] int
-  fmt.Println("check map:", checkMap)
+  var checkMap map[string] int //declare an non initialized map 
+  fmt.Println("check map:", checkMap) 
 
   //checkMap["sid"] = 1; // this is an invalid line, we cannot assign a key value pair to a map if its not initialized 
 
-  peopleMap := map[string] int{}
+  peopleMap := map[string] int{} //declaring an initialized map 
   peopleMap["sid"]=1
   fmt.Println("check map :", peopleMap)
+
   map1 := make(map[string]int)
   map1["sid"] = 345
   fmt.Println("map1:", map1)
 
   //fetching a non existing key returns the zero value of the type of value for the map 
-
   val1 := peopleMap["sid"]
   fmt.Println(val1) //returns 1
   val2 := peopleMap["siddharth"] //val2 is zero 
