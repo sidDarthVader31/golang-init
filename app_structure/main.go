@@ -390,10 +390,22 @@ fmt.Println(keyedArray)
   f3(4,5,6,5.5,6.5,"golang")
   sum := f4(5, 5)
   fmt.Println(sum)
-   sum1, multiple1 := fMultiple(10, 20)
+  sum1, multiple1 := fMultiple(10, 20)
   fmt.Println(sum1, multiple1)
+
+  //variadic functions
+  fVariadic(1,2,3,4,5,6)
+
+  numSlice := []int{1,2,3,4}
+  numSlice = append(numSlice, 5,6)
+  fmt.Println("nusslice:", numSlice)
+  fVariadic(numSlice...)
 }
 
+func fVariadic(a... int){
+  fmt.Printf("%T\n", a )
+  fmt.Printf("%#v\n", a )
+}
 func f11(){
   fmt.Println("called form f1")
 }
