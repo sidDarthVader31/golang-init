@@ -363,9 +363,62 @@ fmt.Println(keyedArray)
   // will be reflected back in the other as well 
   nameMap1["sid"] ="sid1"
   fmt.Println(nameMap)
+  
+  //structs
 
+  type casting struct {
+    name string 
+    gender string 
+  }
+  type movie struct{
+    title string
+    director string
+    year int
+    cast casting
+  }
+  movie1 := movie{"Interstellar", "Christopher Nolan", 2014, casting{"Anne hatheway", "Female"}}
+  fmt.Println(movie1)
 
+  // struct fields can be accessed by . operator 
 
+  fmt.Printf("director of movie %v is %v\n", movie1.title, movie1.director)
+  fmt.Printf("cast of movie %v is : %v\n",movie1.title, movie1.cast.name)
 
-
+  //functions
+  f11()
+  f2(10,20)
+  f3(4,5,6,5.5,6.5,"golang")
+  sum := f4(5, 5)
+  fmt.Println(sum)
+   sum1, multiple1 := fMultiple(10, 20)
+  fmt.Println(sum1, multiple1)
 }
+
+func f11(){
+  fmt.Println("called form f1")
+}
+
+func f2(a int, b float64){
+  fmt.Println(a, b)
+}
+
+//shorthand declaration
+
+func f3(a,b,c int, d,e float64, s string){
+  fmt.Println(a,b,c,d,e,s);
+}
+
+//return types 
+
+func f4(a, b int) (s int) {
+  s = a+b
+  return 
+}
+
+//multiple return types 
+
+
+func fMultiple(a, b int) (int, int){
+  return a+b, a*b;
+}
+
