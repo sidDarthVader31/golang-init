@@ -405,13 +405,17 @@ fmt.Println(keyedArray)
 
   var x3 int = 5 
   pointerA := &x3
-  fmt.Printf("type of pointerA : %T, and value is : %v", pointerA, pointerA)
+  fmt.Printf("type of pointerA : %T, and value is : %v\n", pointerA, pointerA)
 
-
-
+  var x4 int =50
+  fPointers(&x4)
+  fmt.Println("x4 value is:", x4)
 
 }
 
+func fPointers(a *int){
+  *a +=10
+}
 func fVariadic(a... int){
   fmt.Printf("%T\n", a )
   fmt.Printf("%#v\n", a )
