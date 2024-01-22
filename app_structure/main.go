@@ -400,6 +400,16 @@ fmt.Println(keyedArray)
   numSlice = append(numSlice, 5,6)
   fmt.Println("nusslice:", numSlice)
   fVariadic(numSlice...)
+
+  //pointers details 
+
+  var x3 int = 5 
+  pointerA := &x3
+  fmt.Printf("type of pointerA : %T, and value is : %v", pointerA, pointerA)
+
+
+
+
 }
 
 func fVariadic(a... int){
