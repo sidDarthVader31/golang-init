@@ -411,8 +411,25 @@ fmt.Println(keyedArray)
   fPointers(&x4)
   fmt.Println("x4 value is:", x4)
 
-}
+  //OOPS
 
+  //receiver functions 
+
+  // we can associate a function to a type with the help of receiver functions
+  //function declaration for this type of name is given in printNames function
+
+  peopleNames := names{"Luka", "Vini", "toni"}
+  peopleNames.printNames()
+
+  //we can also invoke printNames on the type 
+  names.printNames(peopleNames)
+}
+type names [] string
+func (n names)printNames(){
+  for i,name := range n {
+    fmt.Println(i, name);
+  }
+}
 func fPointers(a *int){
   *a +=10
 }
