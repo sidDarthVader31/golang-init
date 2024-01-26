@@ -439,6 +439,12 @@ fmt.Println(keyedArray)
   printShape(cir)
   circleArea := cir.area()
   fmt.Println("circle area:", circleArea)
+
+  var sShape shape
+  fmt.Printf("type of s shape is : %T\n", sShape)
+
+  sShape = cir
+  fmt.Printf("type of s shape now :%T\n", sShape)
 }
 type shape interface{
   area() float64
