@@ -445,16 +445,65 @@ fmt.Println(keyedArray)
 
   sShape = cir
   fmt.Printf("type of s shape now :%T\n", sShape)
+
+  //empty interface
+  var empty emptyInterface
+  empty = 5
+  fmt.Println(empty)
+  empty = "name"
+  fmt.Println(empty)
+
+  //embedded interfaces
+
+  c := cube{edge: 5., color: "blue"}
+  display(c)
 }
+
+
+type emptyInterface interface {}
+
+type cube struct {
+  edge float64
+  color string
+}
+func (c cube) getColor() string {
+  return c.color
+}
+func (c cube) area() float64{
+  return 6 * math.Pow(c.edge, 2)
+}
+func (c cube) perimeter() float64{
+  return 12 * c.edge
+}
+func (c cube) volume() float64{
+  return math.Pow(c.edge,3)
+}
+func display(g geometry){
+  fmt.Println("area :", g.area())
+  fmt.Println("perimeter:", g.perimeter())
+  fmt.Println("volume:", g.volume())
+  fmt.Println("color:", g.getColor())
+} 
 type shape interface{
   area() float64
   perimeter() float64
 }
+
 type rectangle struct{
   height float64
   width float64
 }
 
+
+type object interface {
+  volume() float64
+}
+
+type geometry interface{
+  shape
+  object
+  getColor() string
+}
 func (r rectangle) area() float64{
   return r.width * r.height
 }
