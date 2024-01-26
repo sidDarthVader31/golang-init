@@ -430,7 +430,59 @@ fmt.Println(keyedArray)
   //changing mycar properties
   myCar.changeCar("Audi", 40000)
   fmt.Println("changed my car config:", myCar)
+
+  //interfaces 
+
+  rect := rectangle{width: 10., height: 20.}
+  cir := circle{radius: 20.}
+  printShape(rect)
+  printShape(cir)
+  circleArea := cir.area()
+  fmt.Println("circle area:", circleArea)
 }
+type shape interface{
+  area() float64
+  perimeter() float64
+}
+type rectangle struct{
+  height float64
+  width float64
+}
+
+func (r rectangle) area() float64{
+  return r.width * r.height
+}
+func (c circle) area() float64{
+  return math.Pi * math.Pow(c.radius,2 )
+}
+type circle struct {
+  radius float64 
+}
+
+func (r rectangle) perimeter() float64{
+  return 2 * r.height * r.width
+}
+func (c circle) perimeter() float64{
+  return 2 * math.Pi * c.radius
+}
+
+func printShape(s shape){
+  fmt.Printf("shape: %#v\n", s)
+  fmt.Println("area:", s.area())
+  fmt.Println("perimeter:", s.perimeter())
+}
+
+
+
+
+
+
+
+
+
+
+
+
 type names [] string
 type car struct{
   brand string
