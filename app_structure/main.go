@@ -423,13 +423,34 @@ fmt.Println(keyedArray)
 
   //we can also invoke printNames on the type 
   names.printNames(peopleNames)
+
+  myCar := car{brand: "Tata", price: 2000}
+  fmt.Println(myCar)
+
+  //changing mycar properties
+  myCar.changeCar("Audi", 40000)
+  fmt.Println("changed my car config:", myCar)
 }
 type names [] string
+type car struct{
+  brand string
+  price int
+}
+//receiver functions
 func (n names)printNames(){
   for i,name := range n {
     fmt.Println(i, name);
   }
 }
+
+//receiver function with pointer 
+
+func (car *car) changeCar(brand string, price int){
+  (*car).price = price
+  (*car).brand = brand
+}
+
+
 func fPointers(a *int){
   *a +=10
 }
