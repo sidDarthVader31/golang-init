@@ -31,7 +31,7 @@ func main() {
     min3 ="sid" )
 
   fmt.Println(min1, min2, min3)
-
+  fmt.Println("hey")
   //arrays
   var numbers = [4] int {1,2,3,4}
   fmt.Printf("numbers array : %T \n",numbers)
@@ -454,7 +454,6 @@ fmt.Println(keyedArray)
   fmt.Println(empty)
 
   //embedded interfaces
-
   c := cube{edge: 5., color: "blue"}
   display(c)
 }
@@ -526,17 +525,6 @@ func printShape(s shape){
   fmt.Println("area:", s.area())
   fmt.Println("perimeter:", s.perimeter())
 }
-
-
-
-
-
-
-
-
-
-
-
 
 type names [] string
 type car struct{
