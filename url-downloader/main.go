@@ -9,8 +9,10 @@ import (
 )
 
 func main(){
-  fmt.Println("args length/:", len(os.Args))
-  checkUrl(os.Args[1]) 
+  url := [] string{"https://www.google.com", "https://www.youtube.com", "https://www.gmail.com"}
+  for _,v := range url{
+    checkUrl(v)
+  }
 }
 
 func checkUrl(url string){
