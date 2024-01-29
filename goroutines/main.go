@@ -6,19 +6,13 @@ import (
 )
 
 func main(){
-  go printRoutines(5)
-  printNumbers(5)
+  go print("siddharth")
+  print("bisht")
 }
 
-func printNumbers(a int){
-  for i := 0 ;i<a;i ++{
-    fmt.Println(i)
-  }
-}
-
-func printRoutines(a int) {
-  for i :=0 ; i< a; i++{
-    time.Sleep(100 * time.Millisecond)
-    fmt.Println("i::", i)
+func print(s string){
+  time.Sleep(100 * time.Millisecond)
+  for i:=1;i<5 ;i++{
+    fmt.Println(s)
   }
 }
