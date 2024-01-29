@@ -6,16 +6,21 @@ import (
 	"net/http"
 	"os"
 	"strings"
+	"sync"
 )
 
 func main(){
   url := [] string{"https://www.google.com", "https://www.youtube.com", "https://www.gmail.com"}
+  var wg sync.WaitGroup
+  wg.Add(len(url))
   for _,v := range url{
-    checkUrl(v)
+    go checkUrl(v, &wg)
+    fmt.Println(strings.Repeat("#", 10))
   }
+  wg.Wait()
 }
 
-func checkUrl(url string){
+func checkUrl(url string, wg *sync.WaitGroup){
   fmt.Println("url is :", url)
   resp, err := http.Get(url)
   if err != nil{
@@ -33,15 +38,16 @@ func checkUrl(url string){
 
       //write the contents to a file 
 
-      fmt.Println("writing the html to a file ")
+      fmt.Println("writing the html to a file for url:", url)
       err =  os.WriteFile(fileName, bodybytes, 0664)
       if err != nil{
-        fmt.Println("error while writing file:", err)
+        fmt.Println("error while writing file for ", err)
       }else{
-        fmt.Println("file written successfully")
+        fmt.Println("file written successfully for url", url)
       }
     }else{
       fmt.Println("status code is not 200", resp.StatusCode)
     }
   }
+  wg.Done()
 }
