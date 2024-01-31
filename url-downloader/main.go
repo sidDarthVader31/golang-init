@@ -18,8 +18,53 @@ func main(){
     fmt.Println(strings.Repeat("#", 10))
   }
   wg.Wait()
-}
 
+
+  fmt.Println(strings.Repeat("#", 20))
+
+  //doing the same stuff with channels 
+
+  ch := make(chan string)
+
+  for _,v := range url{
+    go checkUrlWithChannels(v, ch)
+    fn := <- ch
+    _ = fn
+  }
+  fmt.Println("exiting main")
+
+}
+ 
+
+func checkUrlWithChannels(url string, ch chan string){
+  fmt.Println("url is :", url)
+  resp, err := http.Get(url)
+  if err != nil{
+    fmt.Println(err)
+    fmt.Printf("%s is down!!\n", url)
+  }else{
+    defer resp.Body.Close()
+    fmt.Printf("%s's status code is : %d \n",url,  resp.StatusCode)
+    if resp.StatusCode == 200 {
+      bodybytes, err :=  ioutil.ReadAll(resp.Body);
+      fileName := strings.Split(url, "//")[1]
+      fileName = "channel" + fileName + ".txt"
+      fmt.Println("filename:", fileName)
+      //write the contents to a file 
+      ch <- fileName
+      fmt.Println("writing the html to a file for url:", url)
+      err =  os.WriteFile(fileName, bodybytes, 0664)
+      if err != nil{
+        fmt.Println("error while writing file for ", err)
+      }else{
+        fmt.Println("file written successfully for url", url)
+      }
+    }else{
+      fmt.Println("status code is not 200", resp.StatusCode)
+    }
+  }
+
+}
 func checkUrl(url string, wg *sync.WaitGroup){
   fmt.Println("url is :", url)
   resp, err := http.Get(url)
